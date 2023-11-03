@@ -1,0 +1,28 @@
+{
+	"messages": [
+			{
+					"messageId": "test-ba173ea2-32c1-404e-a472-03be9bb12926",
+					"dateReceived": "2022-11-04T12:22:03.000Z",
+					"reportType": "Position Report",
+					"vesselName": "TEST",
+					"imoNumber": null,
+					"callSign": "LAEC8",
+					"position": null,
+					"status": 3,
+					"attention": null,
+					"keywords": []
+			},
+			{
+					"messageId": "d6ac2e80-725f-49aa-a7d4-f9de55788dac",
+					"dateReceived": "2022-11-03T18:12:03.000Z",
+					"reportType": "Position Report",
+					"vesselName": "SEAWAYS ATHENS",
+					"imoNumber": null,
+					"callSign": "V7WR9",
+					"position": null,
+					"status": 3,
+					"attention": null,
+					"keywords": []
+			}
+	]
+}

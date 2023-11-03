@@ -1,0 +1,23 @@
+#left-side-drawer-nav {
+  position: absolute;
+  bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+}
+
+#left-side-drawer-nav-bottom {
+  position: absolute;
+  bottom: 0;
+}#resium-map-viewer {
+  padding-top: 20px;
+}
+
+.resium-viewer-open {
+  height: 100vh;
+  left: 240px;
+}
+
+.resium-viewer-closed {
+  height: 100vh;
+}

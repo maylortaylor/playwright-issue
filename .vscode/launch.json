@@ -1,0 +1,73 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch Dev",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
+			"runtimeArgs": ["run-script", "dev"],
+			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"name": "Launch DevX",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
+			"runtimeArgs": ["run-script", "devx"],
+			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"name": "Launch Prod",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
+			"runtimeArgs": ["run-script", "prod"],
+			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"name": "Debug API Test File",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run-script",
+				"test:api",
+				"--",
+				"${fileBasename}"
+			],
+			"env": {
+				"npm_config_ENV": "development",
+			},
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"skipFiles": ["<node_internals>/**"]
+		},
+		{
+			"name": "Debug ALL Test File",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run-script",
+				"test:all",
+				"--",
+				"${fileBasename}"
+			],
+			"env": {
+				"npm_config_ENV": "development"
+			},
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"skipFiles": ["<node_internals>/**"]
+		}
+	]
+}

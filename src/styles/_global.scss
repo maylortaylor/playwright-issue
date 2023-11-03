@@ -1,0 +1,59 @@
+@use './variables';
+
+html {
+	height: 100%;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+body {
+	min-height: 100vh;
+	min-width: 100%;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	a:link {
+		text-decoration: none;
+	}
+
+	a:visited {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	a:active {
+		text-decoration: underline;
+	}
+}
+
+#main-layout-container {
+	min-height: 100%;
+	min-width: 100%;
+}
+
+#outlet-wrapper {
+	// min-height: 100vh;
+	// min-width: 100%;
+	// background-size: cover;
+	// padding-top: 60px;
+	// padding-bottom: 80px;
+	// flex: 1;
+}
+
+#page-container {
+	min-height: 100vh;
+	min-width: 100%;
+	background-size: cover;
+	padding: 60px 10px 40px 74px;
+}
+
+.jotai-devtools-UnstyledButton-root {
+	left: unset !important;
+	right: 10px;
+}

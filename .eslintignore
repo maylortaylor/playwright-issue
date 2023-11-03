@@ -1,0 +1,6 @@
+node_modules
+dist
+allure-resuts
+html-reports
+logs
+test-results

@@ -1,0 +1,9 @@
+export enum ReportMessageStatus {
+	UNKNOWN = 0,
+	UNREAD,
+	OK,
+	INTERVENTION_REQUIRED,
+	INTERVENTION_FAILED,
+	ALERT,
+	DELETED,
+}
