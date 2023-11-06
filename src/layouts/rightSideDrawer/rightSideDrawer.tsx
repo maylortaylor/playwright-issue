@@ -12,7 +12,6 @@ import {
 	isRightSideDrawerOpenAtom,
 } from '../../../src/store/';
 
-import MapImageryProviderCheckboxComponent from '../../components/mapImageryProviderCheckbox/mapImageryProviderCheckbox';
 import React from 'react';
 import { useAtom } from 'jotai';
 
@@ -66,13 +65,7 @@ export default function RightSideDrawerComponent() {
 						aria-labelledby="imagery-layers-checkbox-group-label"
 						defaultValue="Infrared"
 					>
-						{imageryProviderAtom.layers.map((item) => (
-							<MapImageryProviderCheckboxComponent
-								key={item.name}
-								atom={item.layer}
-								imageryType={item.name}
-							/>
-						))}
+
 					</FormGroup>
 				</FormControl>
 			</Container>

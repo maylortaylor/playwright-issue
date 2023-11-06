@@ -15,20 +15,12 @@
     "rebuild": "rm -rf node_modules && rm -rf packge-lock.json && npm cache clean --force && npm install",
     "prod": "webpack serve --progress --color --config webpack.prod.config.ts",
     "dev": "webpack serve --progress --color --config webpack.dev.config.ts",
-    "devx": "cross-env EXPERIMENTAL=true webpack serve --progress --color --config webpack.dev.config.ts",
-    "watch": "webpack serve --config webpack.dev.config.ts --watch --progress --color --open",
-    "docker:run": "npm run build && docker build -t polestar/amver-ui . && docker run -p 8080:8080 polestar/amver-ui",
-    "format:check": "prettier --check ./src",
-    "format:fix": "prettier --write ./src",
-    "lint": "eslint src --ext .ts,.tsx",
-    "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "test": "cross-env NODE_ENV=development npx playwright test -c ./playwright-ct.config.ts --trace on --grep @Smoke",
     "test:all": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts",
     "test:api": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts --grep @APIMOCK",
     "test:smoke": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts --grep @Smoke --project=Chrome",
     "test:smoke:ui": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts --grep @Smoke --ui --project=Chrome",
-    "test:smoke:headless": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts --grep @Smoke --project=Chromium",
-    "test:report": "allure serve"
+    "test:smoke:headless": "cross-env NODE_ENV=development npx playwright test --config ./playwright.config.ts --grep @Smoke --project=Chromium"
   },
   "dependencies": {
     "@automapper/classes": "^8.7.7",

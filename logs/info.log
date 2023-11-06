@@ -3924,3 +3924,34 @@
 {"level":"info","message":"Test Case Completed : should work Status : timedOut"}
 {"level":"info","message":"Test Case Completed : should work Status : timedOut"}
 {"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"error","message":"Could not resolve \"../utils/keyCommands\" from \"src/App/App.tsx\""}
+{"level":"error","message":"Could not resolve \"../../components/common/clock/clock\" from \"src/layouts/topNavigation/topNavigation.tsx\""}
+{"level":"error","message":"Could not resolve \"../../components/mapImageryProviderCheckbox/mapImageryProviderCheckbox\" from \"src/layouts/rightSideDrawer/rightSideDrawer.tsx\""}
+{"level":"error","message":"Could not resolve \"../../src/utils/zodDefaults\" from \"src/store/currentVesselDetailsAtom.ts\""}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"error","message":"Could not resolve \"./currentReportDetailsAtom\" from \"src/store/index.ts\""}
+{"level":"error","message":"\"mapCurrentMouseXY\" is not exported by \"src/store/index.ts\", imported by \"src/layouts/topNavigation/topNavigation.tsx\"."}
+{"level":"error","message":"\"currentReportIdAtom\" is not exported by \"src/store/index.ts\", imported by \"src/pages/messagesUtilityList/messagesUtilityListPage.tsx\"."}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : should work"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Started : @Smoke 2"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : @Smoke 2 Status : failed"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}
+{"level":"info","message":"Test Case Completed : should work Status : timedOut"}

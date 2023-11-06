@@ -11,20 +11,17 @@ import {
 import { DataGrid, GridActionsCellItem, GridCellParams, GridColDef, GridComparatorFn, GridFilterItem, GridRowParams, GridToolbar } from "@mui/x-data-grid"
 import { MessageApiResponse, MessagesApiResponse } from '../../types/apis/axiosResponse';
 import React, { SyntheticEvent, useEffect, useMemo, useState } from 'react';
-import { appLoadingAtom, currentReportDetailsAtom, currentReportIdAtom, messageUtilityListAtom, modalStatusAtom } from '../../store';
+import { appLoadingAtom, messageUtilityListAtom } from '../../store';
 
 import { Add } from '@mui/icons-material';
 import Grid from '@mui/material/Unstable_Grid2';
 import MessagesUtilityService from "../../services/messageUtility.api";
 import PageContainerComponent from '../../layouts/pageContainer';
-import ReportDetailsModal from '../../components/modals/reportDetails/reportDetailsModal';
 import { ReportMessageStatus } from '../../types/enums/reportMessageStatus';
-import TabPanel from '../../components/common/tabs/tabPanel';
 import _ from 'lodash';
 import { appColorPalette } from '../../theme';
 import messageUtilityListPageTabsAtom from "../../../src/store/messageUtilityListPageTabsAtom";
 import moment from "moment";
-import tabProps from '../../utils/tabUtils';
 import { useAtom } from 'jotai';
 import { useSearchParams } from 'react-router-dom';
 
@@ -474,16 +471,6 @@ export default function MessagesUtilityListPage() {
 
 	return (
 		<PageContainerComponent>
-			<ReportDetailsModal
-				open={modalStatus.reportDetailsModalOpen}
-				close={() => {
-					setModalStatus({reportDetailsModalOpen: false, vesselDetailsModalOpen: false});
-					if (searchParams.has('message_id')) {
-						searchParams.delete('message_id');
-						setSearchParams(searchParams);
-					}
-				}}
-			/>
 			<Typography
 				variant="h5"
 				sx={{
@@ -501,39 +488,6 @@ export default function MessagesUtilityListPage() {
 				}}
 			>
 				<Grid container spacing={2}>
-					<Grid xs={10}>
-						<Tabs
-							value={tabValue}
-							onChange={handleTabChange}
-							textColor="primary"
-							indicatorColor="secondary"
-							aria-label="table tabs"
-						>
-							<Tab label="ALL" sx={{ maxWidth: '140px' }} {...tabProps(0)} />
-							<Tab
-								label="ATTENTION DIRECTORY"
-								sx={{ maxWidth: '140px' }}
-								{...tabProps(1)}
-							/>
-							<Tab
-								label="REJECTED"
-								sx={{ maxWidth: '140px' }}
-								{...tabProps(2)}
-							/>
-							<Tab label="EDITED" sx={{ maxWidth: '140px' }} {...tabProps(3)} />
-							<Tab
-								label="ARCHIVED"
-								sx={{ maxWidth: '140px' }}
-								{...tabProps(4)}
-							/>
-							<Tab
-								label="DELETED"
-								sx={{ maxWidth: '140px' }}
-								{...tabProps(5)}
-							/>
-						</Tabs>
-					</Grid>
-
 					<Grid xs={2}>
 						<Button
 							aria-label={'create new message'}
@@ -550,137 +504,24 @@ export default function MessagesUtilityListPage() {
 					</Grid>
 				</Grid>
 
-				{/* // * ALL */}
-				<TabPanel index={0} value={tabValue}>
-					<DataGrid
-						initialState={{
-								columns: {
-									columnVisibilityModel: {
-										// Hide columns messageId, the other columns will remain visible
-										messageId: false,
-									},
+				<DataGrid
+					initialState={{
+							columns: {
+								columnVisibilityModel: {
+									// Hide columns messageId, the other columns will remain visible
+									messageId: false,
 								},
-							}}
-						rows={messageUtilityList}
-						columns={tableColumns}
-						getRowId={(row) => row.messageId}
-						slots={{
-							loadingOverlay: LinearProgress,
-							toolbar: GridToolbar
+							},
 						}}
-						loading={tableLoading}
-					/>
-				</TabPanel>
-
-				{/* // * ATTENTION DIRECTORY */}
-				<TabPanel index={1} value={tabValue}>
-					<DataGrid
-						initialState={{
-								columns: {
-									columnVisibilityModel: {
-										// Hide columns messageId, the other columns will remain visible
-										messageId: false,
-									},
-								},
-							}}
-						rows={messageUtilityList}
-						columns={tableColumns}
-						getRowId={(row) => row.messageId}
-						slots={{
-							loadingOverlay: LinearProgress,
-							toolbar: GridToolbar
-						}}
-						loading={tableLoading}
-					/>
-				</TabPanel>
-
-				{/* // * REJECTED */}
-				<TabPanel index={2} value={tabValue}>
-					<DataGrid
-						initialState={{
-								columns: {
-									columnVisibilityModel: {
-										// Hide columns messageId, the other columns will remain visible
-										messageId: false,
-									},
-								},
-							}}
-						rows={messageUtilityList}
-						columns={tableColumns}
-						getRowId={(row) => row.messageId}
-						slots={{
-							loadingOverlay: LinearProgress,
-							toolbar: GridToolbar
-						}}
-						loading={tableLoading}
-					/>
-				</TabPanel>
-
-				{/* // * EDITED */}
-				<TabPanel index={3} value={tabValue}>
-					<DataGrid
-							initialState={{
-									columns: {
-										columnVisibilityModel: {
-											// Hide columns messageId, the other columns will remain visible
-											messageId: false,
-										},
-									},
-								}}
-							rows={messageUtilityList}
-							columns={tableColumns}
-							getRowId={(row) => row.messageId}
-							slots={{
-								loadingOverlay: LinearProgress,
-								toolbar: GridToolbar
-							}}
-							loading={tableLoading}
-						/>
-				</TabPanel>
-
-				{/* // * ARCHIVED */}
-				<TabPanel index={4} value={tabValue}>
-					<DataGrid
-							initialState={{
-									columns: {
-										columnVisibilityModel: {
-											// Hide columns messageId, the other columns will remain visible
-											messageId: false,
-										},
-									},
-								}}
-							rows={messageUtilityList}
-							columns={tableColumns}
-							getRowId={(row) => row.messageId}
-							slots={{
-								loadingOverlay: LinearProgress,
-								toolbar: GridToolbar
-							}}
-							loading={tableLoading}
-						/>
-				</TabPanel>
-
-				{/* // * DELETED */}
-				<TabPanel index={5} value={tabValue}>
-					<DataGrid
-							initialState={{
-									columns: {
-										columnVisibilityModel: {
-											// Hide columns messageId, the other columns will remain visible
-											messageId: false,
-										},
-									},
-								}}
-							rows={messageUtilityList}
-							columns={tableColumns}
-							getRowId={(row) => row.messageId}
-							slots={{
-								loadingOverlay: LinearProgress,
-								toolbar: GridToolbar
-							}}
-							loading={tableLoading}
-						/>
-				</TabPanel>
+					rows={messageUtilityList}
+					columns={tableColumns}
+					getRowId={(row) => row.messageId}
+					slots={{
+						loadingOverlay: LinearProgress,
+						toolbar: GridToolbar
+					}}
+					loading={tableLoading}
+				/>
 			</Box>
 		</PageContainerComponent>
 	);

@@ -14,13 +14,11 @@ import {
 	appLoadingAtom,
 	isLeftSideDrawerOpenAtom,
 	isRightSideDrawerOpenAtom,
-	mapCurrentMouseXY,
 	themeModeAtomWithPersistence,
 } from '../../store/';
 
 import AMVERLogo from '../../assets/images/amver.png';
 import Badge from '@mui/material/Badge';
-import ClockComponent from '../../components/common/clock/clock';
 import IconButton from '@mui/material/IconButton';
 import LeftSideDrawerComponent from '../../layouts/leftSideDrawer/leftSideDrawer';
 import MenuItem from '@mui/material/MenuItem';
@@ -161,10 +159,6 @@ export default function TopNavigationComponent(props: any) {
 							display: { xs: 'none', sm: 'block' },
 						}}
 					>
-						<ClockComponent format={'MMMM DD, y, HH:mm:ss'} />
-						{/* <Typography>
-							{currentMouseXy.latitude}, {currentMouseXy.longitude}
-						</Typography> */}
 					</Box>
 
 					<SearchBar>
