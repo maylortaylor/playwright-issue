@@ -105,7 +105,6 @@ export default function TopNavigationComponent(props: any) {
 	};
 	const [isAppLoading] = useAtom(appLoadingAtom);
 	const [themeMode] = useAtom(themeModeAtomWithPersistence);
-	const [currentMouseXy] = useAtom(mapCurrentMouseXY);
 
 	return (
 		<>

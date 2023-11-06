@@ -70,35 +70,23 @@ export default function MessagesUtilityListPage() {
 	const [messageUtilityList, setMessageUtilityList] = useAtom(
 		messageUtilityListAtom,
 	);
-	const [currentReportId, setCurrentReportId] = useAtom(
-		currentReportIdAtom,
-	);
 	const [isAppLoading, setIsAppLoading] = useAtom(appLoadingAtom);
-	const [modalStatus, setModalStatus] = useAtom(
-		modalStatusAtom,
-	);
-	const [currentReportDetails, setCurrentReportDetails] = useAtom(
-		currentReportDetailsAtom,
-	);
 
 	const keywordComparator: GridComparatorFn<[]> = (v1, v2, param1, param2) => (v1.length - v2.length);
 
 	const handleViewReportButtonClick = async (e: React.MouseEvent<HTMLButtonElement>, index) => {
-		setCurrentReportId(index);
 		await getReportDetails(index);
 		setSearchParams(prev => {
 			prev.set("message_id", index);
 			return prev;
 		}, {replace: true});
 
-		setModalStatus({reportDetailsModalOpen: true, vesselDetailsModalOpen: false});
 	}
 
 	async function getReportDetails(currentReportId) {
 		setIsAppLoading(true);
 		await MessagesUtilityService.getReportDetailsData(currentReportId)
 		.then((response: MessageApiResponse) => {
-			setCurrentReportDetails(response);
 			setIsAppLoading(false);
 			return response;
 		})
@@ -409,7 +397,6 @@ export default function MessagesUtilityListPage() {
 	useMemo(async () => {
 		if (_.isEmpty(messageIdParam) === false) {
 			await getReportDetails(messageIdParam);
-			setModalStatus({reportDetailsModalOpen: true, vesselDetailsModalOpen: false});
 		}
 	}, []);
 
